@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaji dan Lembur Karyawan</title>
+</head>
+<body>
+    <script>
+        const dataKaryawan = [
+        { nama: "Rina", gajiPokok: 4000000, jamLembur: 12 },
+        { nama: "Fajar", gajiPokok: 3500000, jamLembur: 4 },
+        { nama: "Lina", gajiPokok: 5000000, jamLembur: 0 },
+        { nama: "Tono", gajiPokok: 3800000, jamLembur: 15 }
+        ];
+
+
+        function bonusLembur(jamLembur) {
+            if(jamLembur >= 10) {
+                return 500000
+            }
+            else if(jamLembur >= 1) {
+                return 200000
+            }
+            else {
+                return 0
+            }
+        }
+        
+        for(const item of dataKaryawan) {
+            let lembur = bonusLembur(item.jamLembur);
+            let totalGaji = item.gajiPokok + lembur;
+            document.writeln(`Total Gaji ${item.nama} adalah : ${totalGaji}<br>`);
+        }
+    </script>
+</body>
+</html>

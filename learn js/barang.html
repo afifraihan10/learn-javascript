@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       const pesanan = [
+    { nama: "Buku", harga: 5000, jumlah: 6 },      // >= 5, dapat diskon 10%
+    { nama: "Pensil", harga: 2000, jumlah: 3 },    // < 5, harga normal
+    { nama: "Penghapus", harga: 1500, jumlah: 5 }  // >= 5, dapat diskon 10%
+    ];
+
+    function diskonBelanja(daftarPesanan) {
+        let total = 0;
+        for(const item of pesanan) {
+            let subtotal = item.harga * item.jumlah;
+            if(item.jumlah >= 5) {
+                 subtotal = subtotal - (subtotal * 0.1);
+            }
+            else {
+                 subtotal
+            }
+            total += subtotal;
+        }
+        return total;
+    }
+    console.log(diskonBelanja(pesanan));
+    </script>
+</body>
+</html>

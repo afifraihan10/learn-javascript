@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kasir</title>
+</head>
+<body>
+    <script>
+        const daftarProduk = [
+            {nama: "Beras", harga: 15000, jumlah: 2},
+            {nama: "Minyak Goreng", harga: 18000, jumlah: 1},
+            {nama: "Gula", harga: 14000, jumlah: 2},
+            {nama: "Indomie", harga: 3500, jumlah: 5},
+            {nama: "Telur", harga: 28000, jumlah: 1}
+        ];
+
+        function subtotalProduk(harga, jumlah) {
+            const subTotal = (harga * jumlah)
+            return subTotal;
+        }
+
+        let totalBelanja = 0;
+
+        for(const item of daftarProduk) {
+            item.subTotal = subtotalProduk(item.harga, item.jumlah);
+            totalBelanja += item.subTotal;
+            document.writeln(`${item.nama} <br> ${item.subTotal}<br><br>`);
+        }
+
+        document.writeln(`Total Belanja: ${totalBelanja}<br><br>`);
+
+        function diskon(totalBelanja) {
+            if(totalBelanja >= 100000) {
+                return totalBelanja * 0.1;
+            }
+            else if(totalBelanja >= 50000) {
+                return totalBelanja * 0.05
+            }
+            else {
+                return 0;
+            }
+        }
+
+        const potongan = diskon(totalBelanja);
+        const totalPembayaran = totalBelanja - potongan;
+        
+        
+        
+        document.writeln(`Total Pembayaran: ${totalPembayaran}`);
+        
+    </script>
+</body>
+</html>

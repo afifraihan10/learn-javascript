@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Managent</title>
+</head>
+<body>
+    <script>
+        const dataSiswa = [
+            {nama: "Andi", nilaiTugas: 85, nilaiUTS: 80, nilaiUAS: 90},
+            {nama: "Budi", nilaiTugas: 60, nilaiUTS: 65, nilaiUAS: 70},
+            {nama: "Citra", nilaiTugas: 95, nilaiUTS: 90, nilaiUAS: 98},
+            {nama: "Deni", nilaiTugas: 75, nilaiUTS: 80, nilaiUAS: 70},
+            {nama: "Eka", nilaiTugas: 55, nilaiUTS: 50, nilaiUAS: 60}
+        ]
+
+        function hitungNilaiAkhir(nilaiTugas, nilaiUTS, nilaiUAS) {
+            return (nilaiTugas * 0.3) + (nilaiUTS * 0.3) + (nilaiUAS * 0.4);
+            
+        }
+
+
+        function tentukanGrade(nilai) {
+            if(nilai >= 90) {
+                return "Sangat Baik";
+            }
+            else if(nilai >= 80) {
+                return "Baik";  
+            }
+            else if(nilai >= 70) {
+                return "Cukup";
+            }
+            else if(nilai >= 60) {
+                return "Kurang";
+            }
+            else {
+                return "Sangat Kurang";
+            }
+        }
+
+
+        function cekKelulusan(nilai) {
+            if(nilai >= 75) {
+                return "Lulus";
+            }
+            else {
+                return "Tidak Lulus";
+            }
+        }
+
+        for(const siswa of dataSiswa) {
+            siswa.nilaiAkhir = hitungNilaiAkhir(siswa.nilaiTugas, siswa.nilaiUTS, siswa.nilaiUAS);
+            siswa.grade = tentukanGrade(siswa.nilaiAkhir);
+            siswa.kelulusan = cekKelulusan(siswa.nilaiAkhir);
+            document.writeln(`
+            Nama : ${siswa.nama} <br>
+            Nilai Akhir : ${siswa.nilaiAkhir} <br>
+            Grade : ${siswa.grade} <br>
+            Keterangan Lulus : ${siswa.kelulusan} <br><br>`);
+        }
+
+
+      const siswa = {
+    nama: "Citra",
+    nilai: 90
+};
+
+siswa.nilai = 95;
+
+console.log(siswa.nama);
+console.log(siswa.nilai);
+
+
+    </script>
+</body>
+</html>

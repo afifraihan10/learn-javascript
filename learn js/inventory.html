@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management System</title>
+</head>
+<body>
+    <script>
+        const dataBarang = [
+    {
+        nama: "Laptop",
+        harga: 7500000,
+        stok: 10
+    },
+    {
+        nama: "Mouse",
+        harga: 150000,
+        stok: 25
+    },
+    {
+        nama: "Keyboard",
+        harga: 300000,
+        stok: 5
+    },
+    {
+        nama: "Monitor",
+        harga: 1800000,
+        stok: 0
+    },
+    {
+        nama: "Headset",
+        harga: 250000,
+        stok: 3
+    }
+];
+
+    function cekStatusStok(stok) {
+        if(stok > 15) {
+        return stok + " Stok Banyak"
+    }
+    else if(stok >= 5) {
+        return stok + " Stok Tersedia"
+    }
+    else if(stok >= 1) {
+        return stok + " Stok Menipis"
+    }
+    else {
+        return stok + " Stok Habis"
+    }
+    }
+
+    for(const item of dataBarang) {
+        let stokBarang = cekStatusStok(item.stok);
+    }
+
+    function nilaiPersediaanProduk(harga, stok) {
+        let nilaiPersediaan = (harga * stok)
+        return nilaiPersediaan
+    }
+
+    for(const item of dataBarang) {
+        let totalStok = 0;
+        let totalNilaiPersediaan = 0;
+        let nilaiProduk = nilaiPersediaanProduk(item.harga, item.stok);
+        totalStok += item.stok;
+        totalNilaiPersediaan += nilaiProduk;
+    }
+
+    function cariBarang(namaBarang) {
+        for(const item of dataBarang) {
+            if(item.nama.toLocaleLowerCase() === namaBarang.toLocaleLowerCase()) {
+                return item;
+            }
+        }
+        return null;
+    }
+
+    const inputBarang = prompt("Masukkan nama barang");
+    const hasil = cariBarang(inputBarang);
+    if(hasil !== null) {
+        document.writeln(`Nama barang : ${hasil.nama}, Rp : ${hasil.harga}, Stok : ${hasil.stok}, Status : ${cekStatusStok(hasil.stok)}<br><br>`);
+    }
+    else {
+        alert("Data tidak ditemukan")
+    }
+    
+
+    </script>
+</body>
+</html>

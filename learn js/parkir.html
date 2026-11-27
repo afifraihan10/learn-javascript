@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Parkir Sederhana</title>
+</head>
+<body>
+    <script>
+        const daftarParkir = [
+        { plat: "T 1234 AB", jenis: "Motor", jam: 3 },
+        { plat: "D 5678 CD", jenis: "Mobil", jam: 2 },
+        { plat: "B 9012 EF", jenis: "Motor", jam: 6 },
+        { plat: "T 3456 GH", jenis: "Mobil", jam: 5 }
+        ];
+
+    
+        function totalParkir(jenis, jam) {
+            if(jenis === "Motor") {
+                return 2000 * jam
+            } 
+            else if(jenis === "Mobil") {
+                return 5000 * jam
+            }
+            else {
+                return "Tidak Tau"
+            }
+        }
+
+        let totalKeseluruhan = 0;
+
+
+        for(const item of daftarParkir) {
+            item.tarifParkir = totalParkir(item.jenis, item.jam);
+            document.writeln(`Tarif kendaraan anda adalah ${item.tarifParkir}<br><br>`);
+            totalKeseluruhan += item.tarifParkir;
+        }
+
+        document.writeln(`Total keseluruhannya adalah ${totalKeseluruhan}`)
+
+    </script>
+</body>
+</html>

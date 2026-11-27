@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Siswa(firstName, lastName) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.sayHello = function (name) {
+                console.log(`Holla ${name}, my name is ${this.firstName} ${this.lastName}`);
+            }
+        }
+
+        const apip = new Siswa("Afif", "Raihan");
+        apip.sayHello("Guys");
+        console.log(apip);
+    </script>
+</body>
+</html>

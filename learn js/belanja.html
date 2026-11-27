@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const belanja = [
+    {nama: "Beras", harga: 15000, jumlah: 2},
+    {nama: "Gula", harga: 14000, jumlah: 3},
+    {nama: "Minyak", harga: 18000, jumlah: 1}
+    ];
+
+    function hargaBelanja(harga, jumlah) {
+       let total = (harga * jumlah)
+       return total
+    }
+
+    for(const item of belanja) {
+        item.totalBelanja = hargaBelanja(item.harga, item.jumlah);
+        document.writeln(`Total Belanja : ${item.nama}, ${item.totalBelanja}<br><br>`);
+    }
+    </script>
+</body>
+</html>
